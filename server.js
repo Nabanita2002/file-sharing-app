@@ -2,7 +2,19 @@ const express= require("express");
 
 const connectdb= require("./config/db")
 
+const cors= require("cors");
+
 connectdb();
+
+// cors
+
+const corsOptions={
+    origin:process.env.ALLOWED_CLIENTS.split(',')
+
+
+}
+
+app.use(cors(corsOptions));
 
 const app=express();
 
